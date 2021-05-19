@@ -63,33 +63,35 @@ public class SolTrabajo {
 		System.out.print("Remuneración pretendida del solicitante: ");
 		remP = scan.nextInt();
 
-		if (edad < 18 && edad > 35) {
-			System.out.print("Sus" + edad + "años no corresponden con nuestra busqueda");
-		} else if (añosExp < 3 && remP > 50000) {
-			System.out.println("La remuneracion pretendida para tres o menos años de exp.\n debe ser menor a $50.000");
+		if (edad < 18 || edad > 35) {
+			System.out.print("Sus " + edad + " años no corresponden con nuestra busqueda");
+		} 
+		
+		else if (añosExp < 3 && remP > 50000) {
+			System.out.println("La remuneracion pretendida para tres o menos años de exp.\ndebe ser menor a $50.000");
 		}
 
-		else if (edad < 32 && edad <= 35 && añosExp < 6) {
-			System.out.println("Debe superar los 6 años de experiencia");
-		}
-
-		else if (añosExp < 6 && añosExp > 3) {
+		else if (edad > 32 && (añosExp < 6 && añosExp > 3)) {
 			System.out.println("ACEPTADO de forma condicional");
+			System.out.println("**************************************************");
+			resultado(razonsocial, puesto, edad, añosExp, remP);
 		}
-
+			
 		else {
-
-			System.out.println("Cumple con todos los requisitos de búsqueda");
-			System.out.println("*****************************************************");
-			System.out.println("Nombre y razón social: " + razonsocial);
-			System.out.println("Puesto: " + puesto);
-			System.out.println("Experiencia en el puesto: " + añosExp + " años");
-			System.out.println("Edad: " + edad + " años");
-			System.out.println("Remuneración percibida: $" + remP);
-
+			resultado(razonsocial, puesto, edad, añosExp, remP);
 		}
 
+	}
 
+	private static void resultado(String razonsocial, String puesto, int edad, int añosExp, int remP) {
+		System.out.println("");
+		System.out.println("Cumple con todos los requisitos de búsqueda");
+		System.out.println("*****************************************************");
+		System.out.println("Nombre y razón social: " + razonsocial);
+		System.out.println("Puesto: " + puesto);
+		System.out.println("Experiencia en el puesto: " + añosExp + " años");
+		System.out.println("Edad: " + edad + " años");
+		System.out.println("Remuneración percibida: $" + remP);
 	}
 
 }
